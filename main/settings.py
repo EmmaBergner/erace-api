@@ -37,8 +37,10 @@ SECRET_KEY = 'django-insecure-zv!rxvr5w0&cemkt$_(7s=igu93#k3=ey^mlai9m2w@!90of1-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+   os.environ.get('ALLOWED_HOST'),
+   'localhost',
+]
 
 # Application definition
 
@@ -66,7 +68,11 @@ INSTALLED_APPS = [
     'profiles',
     'races',
     'comments',
+    'runs',
+    'stars',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
