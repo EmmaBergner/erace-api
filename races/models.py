@@ -4,11 +4,11 @@ from django.contrib.auth.models import User
 
 class Race(models.Model):
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=255, blank=True)
-    dictance = models.TextField(blank=True)
-    country = models.TextField(blank=True)
-    date = models.TextField(blank=True)
-    website = models.TextField(blank=True)
+    name = models.CharField(max_length=255, blank=False)
+    distance = models.IntegerField(blank=False)
+    country = models.TextField(blank=False)
+    date = models.DateTimeField(auto_now_add=False)
+    website = models.CharField(max_length=255, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 

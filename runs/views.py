@@ -1,21 +1,21 @@
 from django.db.models import Count
 from rest_framework import generics, filters
 from main.privilege import IsOwerOrReadOnly
-from .models import Race
+from .models import Run
 from django_filters.rest_framework import DjangoFilterBackend
-from .serializer import RaceSerializer
+from .serializer import RunSerializer
 
 
-class RaceList(generics.ListAPIView):
-    queryset = Race.objects.all()
-    serializer_class = RaceSerializer
+class RunList(generics.ListAPIView):
+    queryset = Run.objects.all()
+    serializer_class = RunSerializer
     filter_backends = [
         filters.OrderingFilter,
         DjangoFilterBackend,
     ]
 
 
-class RaceDetail(generics.RetrieveUpdateAPIView):
+class RunDetail(generics.RetrieveUpdateAPIView):
     permission_classes = [IsOwerOrReadOnly]
-    serializer_class = RaceSerializer
-    queryset = Race.objects.all()
+    serializer_class = RunSerializer
+    queryset = Run.objects.all()
