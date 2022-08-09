@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Race(models.Model):
-    owner = models.OneToOneField(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255, blank=False)
     distance = models.IntegerField(blank=False)
     country = models.TextField(blank=False)

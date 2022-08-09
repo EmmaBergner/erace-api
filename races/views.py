@@ -1,17 +1,23 @@
 from django.db.models import Count
-from rest_framework import generics, filters
+from rest_framework import generics, filters, permissions
 from main.privilege import IsOwerOrReadOnly
 from .models import Race
 from django_filters.rest_framework import DjangoFilterBackend
 from .serializer import RaceSerializer
 
 
-class RaceList(generics.ListAPIView):
+class RaceList(generics.ListCreateAPIView):
+    #permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Race.objects.all()
     serializer_class = RaceSerializer
     filter_backends = [
         filters.OrderingFilter,
+        filters.SearchFilter,
         DjangoFilterBackend,
+    ]
+
+    filterset_fields = [
+        'runs__owner__profile'
     ]
 
 

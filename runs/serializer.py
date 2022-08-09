@@ -7,7 +7,11 @@ from .models import Run
 class RunSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
+    created_at = serializers.SerializerMethodField()
 
+    def get_created_at(self, obj):
+        return obj.date.strftime("%d %b %Y")
+    
 
     def get_is_owner(self, obj):
         request = self.context['request']
@@ -16,5 +20,5 @@ class RunSerializer(serializers.ModelSerializer):
     class Meta:
         model = Run
         fields = [
-            'id', 'owner', 'race', 'created_at', 'is_owner', 
+            'id', 'owner',  'is_owner', 'race', 'created_at'
         ]
