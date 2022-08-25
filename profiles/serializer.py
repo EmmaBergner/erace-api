@@ -1,4 +1,3 @@
-from turtle import update
 from requests import request
 from rest_framework import serializers
 from .models import Profile

@@ -1,5 +1,4 @@
 import time
-from turtle import update
 from requests import request
 from rest_framework import serializers
 from stars.models import Star
