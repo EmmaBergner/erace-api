@@ -5,26 +5,29 @@ from .models import Comment
 
 
 class CommentSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source='owner.username')
+    #owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
-    race = serializers.ReadOnlyField(source = 'race.id')
+    owner_username = serializers.SerializerMethodField()
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
 
     def get_created_at(self, obj):
-        return obj.date.strftime("%d %b %Y")
+        return obj.created_at.strftime("%d %b %Y")
     
     def get_updated_at(self, obj):
-        return obj.date.strftime("%d %b %Y")
-
+        return obj.updated_at.strftime("%d %b %Y")
 
     def get_is_owner(self, obj):
         request = self.context['request']
         return request.user == obj.owner
 
+    def get_owner_username(self, obj):
+        request = self.context['request']
+        return obj.owner.username
+
     class Meta:
         model = Comment
         fields = [
-            'id', 'owner', 'is_owner', 'race', 'created_at',
+            'id', 'owner', 'owner_username', 'is_owner', 'race', 'created_at',
              'updated_at', 'text', 'image'
         ]

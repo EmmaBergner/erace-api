@@ -6,7 +6,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .serializer import RunSerializer
 
 
-class RunList(generics.ListAPIView):
+class RunList(generics.ListCreateAPIView):
     queryset = Run.objects.all()
     serializer_class = RunSerializer
     filter_backends = [
@@ -15,7 +15,7 @@ class RunList(generics.ListAPIView):
     ]
 
 
-class RunDetail(generics.RetrieveUpdateAPIView):
+class RunDetail(generics.RetrieveDestroyAPIView):
     permission_classes = [IsOwerOrReadOnly]
     serializer_class = RunSerializer
     queryset = Run.objects.all()

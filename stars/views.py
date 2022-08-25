@@ -6,7 +6,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .serializer import StarSerializer
 
 
-class StarList(generics.ListAPIView):
+class StarList(generics.ListCreateAPIView):
     queryset = Star.objects.all()
     serializer_class = StarSerializer
     filter_backends = [
@@ -15,7 +15,7 @@ class StarList(generics.ListAPIView):
     ]
 
 
-class StarDetail(generics.RetrieveUpdateAPIView):
+class StarDetail(generics.RetrieveDestroyAPIView):
     permission_classes = [IsOwerOrReadOnly]
     serializer_class = StarSerializer
     queryset = Star.objects.all()

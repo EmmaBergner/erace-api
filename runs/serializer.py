@@ -5,12 +5,12 @@ from .models import Run
 
 
 class RunSerializer(serializers.ModelSerializer):
-    owner = serializers.ReadOnlyField(source='owner.username')
+    # owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     created_at = serializers.SerializerMethodField()
 
     def get_created_at(self, obj):
-        return obj.date.strftime("%d %b %Y")
+        return obj.created_at.strftime("%d %b %Y")
     
 
     def get_is_owner(self, obj):

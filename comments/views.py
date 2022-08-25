@@ -6,16 +6,20 @@ from django_filters.rest_framework import DjangoFilterBackend
 from .serializer import CommentSerializer
 
 
-class CommentList(generics.ListAPIView):
+class CommentList(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     filter_backends = [
         filters.OrderingFilter,
+        filters.SearchFilter,
         DjangoFilterBackend,
     ]
 
+    filterset_fields = [
+        'race',
+    ] 
 
-class CommentDetail(generics.RetrieveUpdateAPIView):
+class CommentDetail(generics.RetrieveDestroyAPIView):
     permission_classes = [IsOwerOrReadOnly]
     serializer_class = CommentSerializer
     queryset = Comment.objects.all()

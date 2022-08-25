@@ -4,7 +4,7 @@ from races.models import Race
 
 class Run(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    race = models.OneToOneField(Race, on_delete=models.CASCADE, related_name='runs')
+    race = models.ForeignKey(Race, on_delete=models.CASCADE, related_name='runs')
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -12,4 +12,4 @@ class Run(models.Model):
         unique_together = ['owner', 'race']
 
     def __str__(self):
-        return f'{self.owner} runs {self.race}'
+        return f'Run [owner: {self.owner}, race: {self.race}]'

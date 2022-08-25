@@ -7,7 +7,7 @@ from .serializer import RaceSerializer
 
 
 class RaceList(generics.ListCreateAPIView):
-    #permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Race.objects.all()
     serializer_class = RaceSerializer
     filter_backends = [
@@ -17,8 +17,14 @@ class RaceList(generics.ListCreateAPIView):
     ]
 
     filterset_fields = [
-        'runs__owner__profile'
+        'runs__owner__profile',
+        'stars__owner__profile'
     ]
+
+    search_fields = [
+        'country',
+    ]
+
 
 
 class RaceDetail(generics.RetrieveUpdateAPIView):
