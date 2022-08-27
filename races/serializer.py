@@ -48,6 +48,7 @@ class RaceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Race
         fields = [
-            'id', 'owner', 'owner_username', 'name', 'distance', 'country', 'date', 'website', 'created_at', 'updated_at',
-            'is_owner', 'star_id', 'run_id',
+            'id', 'owner', 'owner_username', 'name', 'distance', 
+            'country', 'date', 'website', 'created_at', 'updated_at',
+             'is_owner', 'star_id', 'run_id',
         ]

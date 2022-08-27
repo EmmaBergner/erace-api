@@ -57,7 +57,7 @@ Tests were preformed using Postman and the Erace application frontend.
 
 ## Pre-deployment checklist
 
-Set default renderer to JSON 
+- Set default renderer to JSON 
 - Verify that Procfile contains correct release and web commands
 - Verify that DEBUG is set to False
 - Verify that requirements.txt is up to date.
