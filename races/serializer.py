@@ -8,9 +8,7 @@ from django.contrib.humanize.templatetags.humanize import datetime
 
 
 class RaceSerializer(serializers.ModelSerializer):
-    # owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
-    #date = serializers.SerializerMethodField()
     owner_username = serializers.SerializerMethodField()
     created_at = serializers.SerializerMethodField()
     updated_at = serializers.SerializerMethodField()
@@ -18,13 +16,8 @@ class RaceSerializer(serializers.ModelSerializer):
     run_id = serializers.SerializerMethodField()
 
     def get_is_owner(self, obj):
-        # EB Remove next line
-        time.sleep(0.001)
         request = self.context['request']
         return request.user == obj.owner
-
-    # def get_date(self, obj):
-    #     return obj.date.strftime("%A %d %B %Y, %H:%M")
 
     def get_created_at(self, obj):
         return obj.created_at.strftime("%d %b %Y")

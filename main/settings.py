@@ -62,7 +62,7 @@ else:
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
@@ -70,6 +70,7 @@ ALLOWED_HOSTS = [
 ]
 
 CORS_ALLOW_CREDENTIALS = True 
+
 
 if 'CLIENT_ORIGIN' in os.environ:
     CORS_ALLOWED_ORIGINS = [

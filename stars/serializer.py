@@ -5,7 +5,6 @@ from .models import Star
 
 
 class StarSerializer(serializers.ModelSerializer):
-    # owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
     created_at = serializers.SerializerMethodField()
 

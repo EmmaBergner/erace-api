@@ -26,7 +26,6 @@ class RaceList(generics.ListCreateAPIView):
     ]
 
 
-
 class RaceDetail(generics.RetrieveUpdateAPIView):
     permission_classes = [IsOwerOrReadOnly]
     serializer_class = RaceSerializer

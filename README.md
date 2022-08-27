@@ -31,7 +31,7 @@ Project description
 | User | users/ users/:id/ | Yes | Yes | Yes | No | No | No |
 | Profile | profiles/ profiles/:id/ | Yes (auto) | Yes | Yes | No | No | No |
 | Race | races/ races/:id/ | Yes | Yes | Yes | No | Star Run | Country |
-| Comment | comments/ comment/:id/ | Yes | Yes | No | Yes | No | No |
+| Comment | comments/ comment/:id/ | Yes | Yes | No | Yes | Run | No |
 | Run | runs/ runs/:id/ | Yes | Yes | No | Yes | No | No |
 | Star | stars/ stars/:id/ | Yes | Yes | No | Yes | No | No |
 
