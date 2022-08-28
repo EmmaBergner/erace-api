@@ -1,9 +1,22 @@
 # erace-api
 
-Project description 
+### Project description 
 
-....
+As a runner, you become part of a global community. A running race brings together participants from all over the world, not only to compete with, but also to socialize and motivate each other.
 
+eRace is a web browser application for where runners can find and inform each other of races worldwide. The database is provided by the community in two stages per race: First, one user provides a small set of basic facts (place, time, etc.). Second, any user may add additional facts in text or image form.
+
+The application has been designed specifically with use on mobile devices in mind.
+
+## Project Goals
+
+Finding a race — Whether you are looking for a picturesque trail run near you, or going for a holiday and want to find a run in that specific country, you can find it by searching this crowd sourced repository.
+
+Joining the buzz — Share your insights with your fellow users and gain new insights from them. 
+
+Keeping a record — Your past races are displayed separately for easy access and ego boost.
+
+Scheduling races to come — Your next upcoming race is always presented after sign in and a chronological list of all upcoming races is easily accessible.
 
 ## User stories 
 
@@ -76,4 +89,10 @@ The following environment variables are defined:
 | SECRET_KEY | ... |
 
 
+## Credits
 
+- Code Institude has through out the course provided me with various code solutions large and small that I have reused freely.  
+
+- [Instructions](https://docs.google.com/document/d/1P5CWvS5cYalkQOLeQiijpSViDPogtKM7ZGyqK-yehhQ/edit) on Heruko and Django
+
+- [Slackoverflow](https://stackoverflow.com/) helped me out with code solutions throughout the project
