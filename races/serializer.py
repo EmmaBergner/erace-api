@@ -26,20 +26,16 @@ class RaceSerializer(serializers.ModelSerializer):
         return obj.updated_at.strftime("%d %b %Y")
 
     def get_star_id(self, obj):
-        user = self.context['request'].user
-        if user.is_authenticated:
-            star = Star.objects.filter(
-                owner=user, race=obj).first()
-            return star.id if star else None
-        return None
+        currentUser = self.context['request'].query_params.get('currentUser')
+        star = Star.objects.filter(
+            owner=currentUser, race=obj).first()
+        return star.id if star else None
 
     def get_run_id(self, obj):
-        user = self.context['request'].user
-        if user.is_authenticated:
-            run = Run.objects.filter(
-                owner=user, race=obj).first()
-            return run.id if run else None
-        return None
+        currentUser = self.context['request'].query_params.get('currentUser')
+        run = Run.objects.filter(
+            owner=currentUser, race=obj).first()
+        return run.id if run else None
 
     def get_owner_username(self, obj):
         request = self.context['request']
