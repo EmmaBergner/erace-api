@@ -91,7 +91,7 @@ The following environment variables are defined:
 
 ## Credits
 
-- [Code Institude](https://codeinstitute.net/) has through out the course provided me with various code solutions large and small that I have reused freely.  
+- [Code Institute](https://codeinstitute.net/) has through out the course provided me with various code solutions large and small that I have reused freely.  
 
 - [Instructions](https://docs.google.com/document/d/1P5CWvS5cYalkQOLeQiijpSViDPogtKM7ZGyqK-yehhQ/edit) on Heruko and Django
 
